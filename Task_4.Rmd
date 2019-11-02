@@ -127,12 +127,21 @@ Avgoprofit <- subset(Avgoprofit, select = c(Order_Date, Profit, Customer_Segment
 
 Avgoprofit$Order_Date <- as.yearmon(Avgoprofit$Order_Date, "%Y-%m")
 
-Avgoprofit <- Avgoprofit %>%
-  filter(Order_Date >= "Jan 2017", Order_Date <= "Dec 2017") %>%
-  group_by(Customer_Segment, Product_Category, Region) %>%
-  summarise(Avrage_Profit = mean(Profit))
+Avgoprofit <- Avgoprofit %>% filter(Order_Date >= "jan 2017", Order_Date <= "des 2017")%>% group_by(Customer_Segment, Product_Category, Region) %>%
+  summarise(Average_profit = mean(Profit))
+
 
 
 ```
 
+
+
+
+
+```{r}
+Avgoprofit <- Avgoprofit %>%
+  filter(Order_Date >= "Jan 2017", Order_Date <= "Dec 2017") %>%
+  group_by(Customer_Segment, Product_Category, Region) %>%
+  summarise(Avrage_Profit = mean(Profit))
+```
 
