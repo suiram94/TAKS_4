@@ -96,9 +96,20 @@ Plot01og13 <- ggplot() +
   geom_col(data = PlotRegion1, aes(x= PlotRegion1$Order_Date, y= PlotRegion1$Sales, color=PlotRegion1$Region)) +
   geom_col(data = PlotRegion13, aes(x= PlotRegion13$Order_Date, y=PlotRegion13$Sales, color=PlotRegion13$Region))
 Plot01og13
+```
 
-##OPPGAVE 3
+```{r}
+#OPPGAVE 2 SVAR
+Plot01og13
+paste("As we can see from the graph, Region 13 has a segnificant higer sales income all thru the three years.")
 
+```
+
+
+
+
+```{r}
+#OPPGAVE 3
 PlotRegion1$Order_Date <- as.yearmon(PlotRegion1$Order_Date, "%Y-%m") 
 
 PlotRegion13$Order_Date <- as.yearmon(PlotRegion13$Order_Date, "%Y-%m")
@@ -113,7 +124,21 @@ bymonth2 <- PlotRegion13 %>%
 
 diffsales <- bymonth1$Plotregion - bymonth2$Plotregion
 diffsales  # Boksen viser fra Januar 2014 til Desember 2017
+
 ```
+
+```{r}
+#OPPGAVE 3 SVAR
+diffsales
+
+paste("The first number on the first row in the box output is january 2014, witch means that the last number on the last row is desember 2017. This makes it easy to identify whitch month that Region 13 had higer sales thant Region 1. ")
+
+
+```
+
+
+
+
 
 ```{r}
 #OPPGAVE 4
