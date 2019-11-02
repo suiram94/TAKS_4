@@ -116,8 +116,21 @@ diffsales  # Boksen viser fra Januar 2014 til Desember 2017
 ```
 
 ```{r}
+#OPPGAVE 4
 
+Avgoprofit <- datafil %>%
+  filter(Region == c("Region 1", "Region 2", "Region 3", "Region 4", "Region 5"
+                     , "Region 6", "Region 7", "Region 8", "Region 9", 
+                     "Region 10", "Region 11", "Region 12", "Region 13"))
 
+Avgoprofit <- subset(Avgoprofit, select = c(Order_Date, Profit, Customer_Segment, Product_Category, Region))
+
+Avgoprofit$Order_Date <- as.yearmon(Avgoprofit$Order_Date, "%Y-%m")
+
+Avgoprofit <- Avgoprofit %>%
+  filter(Order_Date >= "Jan 2017", Order_Date <= "Dec 2017") %>%
+  group_by(Customer_Segment, Product_Category, Region) %>%
+  summarise(Avrage_Profit = mean(Profit))
 
 
 ```
